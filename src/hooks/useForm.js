@@ -2,7 +2,8 @@ import React, { useState } from "react";
 
 export const useForm = ( initialForm = {}) => {
 
-    const [formState, setFormState] = useState({});
+    const [formState, setFormState] = useState({}); 
+    // const [formState, setFormState] = useState({initialForm}); 
 
     const onInputChange = ({target}) => {
         // console.log(event.target.value)

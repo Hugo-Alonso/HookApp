@@ -2,14 +2,26 @@ import React, { useEffect, useReducer } from "react";
 import { toDoReducer } from "./toDoReducer";
 import { ToDoList } from "./components/ToDoList";
 import { ToDoAdd } from "./components/ToDoAdd";
+import './TodoApp.css';
 
-const initialState = []; // Estado inicial vacío
+const initialState = [
+    // {
+    //     id: new Date().getTime(),
+    //     description: 'Recolectar bayas del jardin',
+    //     done: false
+    // }
+];
+
+const init = () => {
+    return JSON.parse( localStorage.getItem('toDos')) || [];
+}
 
 export const TodoApp = () => {
-    const [toDos, dispatch] = useReducer(toDoReducer, initialState);
+    const [toDos, dispatch] = useReducer(toDoReducer, initialState, init );
 
     useEffect(() => {
-        console.log(toDos);
+        localStorage.setItem('toDos', JSON.stringify( toDos ));
+        // console.log(toDos);
     }, [toDos])
     
     const handleNewTodo = (todo) => {
@@ -46,7 +58,7 @@ export const TodoApp = () => {
                 <div className="col-7">
                     <ToDoList 
                         toDos={toDos} 
-                        onDeleteTodo={handleDeleteTodo} 
+                        onDeleteTodo={handleDeleteTodo} // onDeleteTodo = { (id) => handleDeleteTodo(id) }
                         onToggleTodo={handleToggleTodo} 
                     />
                 </div>
