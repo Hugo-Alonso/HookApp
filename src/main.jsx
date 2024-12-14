@@ -14,10 +14,15 @@ import { MemoHook } from './06-memos/MemoHook.jsx';
 import { CallbackHook } from './06-memos/CallbackHook.jsx';
 import { Padre } from './07-tarea-memo/Padre.jsx';
 import { TodoApp } from './08-useReducer/ToDoApp.jsx';
+import { MainApp } from './09-useContext/MainApp.jsx';
+import { BrowserRouter } from 'react-router-dom';
 // import './08-useReducer/intro-reducer.js';
 
+
 createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-    <TodoApp />
-//   </StrictMode>,
+    <BrowserRouter>     
+    {/* <StrictMode> */}
+        <MainApp />
+    {/* </StrictMode> */}
+    </BrowserRouter>
 )

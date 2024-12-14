@@ -9,7 +9,13 @@ button {
 label {
     display: block
 }
+
 input {
     display:block;
     margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    margin-right: 5px;
 }
